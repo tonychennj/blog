@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>废镜 — T Chen</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #f7f5f0;
+    color: #2a2824;
+    font-family: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
+    line-height: 2;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 96px 24px 48px;
+    background: linear-gradient(180deg, #eae7df 0%, #f0ede5 40%, #f7f5f0 100%);
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 1px;
+    background: #d4cfc5;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: #1a3a5c;
+    margin-bottom: 16px;
+  }
+
+  .hero .atmosphere {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #c5bfb3;
+    margin-top: 20px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Content ── */
+  .content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 24px 60px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .section:nth-child(1) { animation-delay: 0.1s; }
+  .section:nth-child(2) { animation-delay: 0.2s; }
+  .section:nth-child(3) { animation-delay: 0.3s; }
+  .section:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .section h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #b0a999;
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8e5dd;
+  }
+
+  /* ── Paragraphs ── */
+  .section p {
+    margin-bottom: 1.2em;
+    text-align: justify;
+    text-indent: 2em;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Ending ── */
+  .ending {
+    text-align: center;
+    padding: 48px 0 24px;
+    color: #b0a999;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 32px 0 64px;
+    border-top: 1px solid #e5e1d8;
+    margin-top: 48px;
+  }
+
+  .footer a {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 0.82rem;
+    color: #b0a999;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+    display: inline-block;
+    margin: 0 12px;
+  }
+
+  .footer a:hover { color: #1a3a5c; }
+
+  .footer .separator {
+    color: #d4cfc5;
+    margin: 0 8px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    body { font-size: 16px; line-height: 2; }
+    .hero { padding: 64px 20px 36px; }
+    .hero h1 { font-size: 1.8rem; letter-spacing: 0.15em; }
+    .content { padding: 32px 18px 48px; }
+    .section { margin-bottom: 40px; }
+    .section p { text-indent: 1.5em; }
+  }
+
+  /* ── Selection ── */
+  ::selection {
+    background: rgba(90, 138, 181, 0.15);
+    color: #1a3a5c;
+  }
+
+  /* ── Print ── */
+  @media print {
+    .section { opacity: 1; transform: none; page-break-inside: avoid; }
+    body { font-size: 12pt; line-height: 1.8; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero" id="top">
+  <h1>废镜</h1>
+  <div class="atmosphere">那块镜片我举起来，透过它看天花板。什么也看不清。</div>
+</div>
+
+<div class="content">
+
+<!-- ── Section 1 ── -->
+<section class="section">
+<h2>（一）</h2>
+
+<p>世界杯决赛结束那晚，我坐在沙发上抽烟，电视里还在播颁奖的画面。阿根廷输了。我的注意力没在那上面。镜头扫过球场的时候，有一张脸被特写了大概三四秒，一个三十九岁的男人，坐在草地上，没有笑也没有哭，只是看着场中央。那种眼神我认得。</p>
+
+<p>解说员说了他的名字，说他可能不会再踢世界杯了，说他职业生涯的最后一段路走成了这样，但没人能说他什么。</p>
+
+<p>我忽然觉得喉咙里堵着什么。</p>
+
+<p>不是因为赢或输。是那个坐在地上的人，在全世界都准备把他放进"传奇"那个框里的时候，他自己可能还没有想好明天早上起来要干什么。二十多年。每天早上七点，训练，吃饭，训练，战术会，睡觉。他的身体已经被那几个动作磨成了固定的形状。所有人喊他的名字的时候，喊的是他做的那件事。然后有一天，裁判吹了终场哨，那件事就结束了。</p>
+
+<p>弹幕和评论我后来翻了一下。有人说"青春结束了"，有人说"史上最佳"，有人说"该退了"。没有人在乎他退下来以后叫什么。他得从一个名字变成另一个人。但那个人是谁，没人知道，大概他自己也不知道。</p>
+
+<p>我从沙发上站起来，把电视关了。走进工坊，开了灯。工作台上那块磨废的镜片还立在窗台上，月光照着它，在墙上投出一块歪歪扭扭的光斑。我拿起那块镜片，对着灯看了看。右眼中间那团黄雾还在，隔着它看玻璃，边缘模糊，像透过带水汽的窗户看外面。</p>
+
+<p>我把它放回窗台。关门，回屋，躺下。天花板有一道裂痕，从灯座延伸到墙角，弯弯曲曲的，像一条干涸的河。</p>
+
+<p>第二天早上我去找了罗哈斯。说向导的活儿我干。她说好。</p>
+</section>
+
+<!-- ── Section 2 ── -->
+<section class="section">
+<h2>（二）</h2>
+
+<p>我四十六岁那年，右眼开始出问题。不是看不见，是看东西的时候视野正中间总糊着一层淡黄色的东西，像透过旧玻璃瓶底看世界。验光师说黄斑区有点变化，正常，人到这个岁数多少都这样。我说我是磨镜片的，靠眼睛吃饭。他说那就戴眼镜。我说戴眼镜磨出来的曲面会偏。他合上病历本，看了我一眼，说那你可能得想想别的路。</p>
+
+<p>我从诊所出来，街上没有风，但空气里飘着细砂。阿塔卡马这一带就是这点不好，不下雨的时候砂子也浮着，钻进衣领里，走路的时候在鞋底发出吱吱的声响。我走了大概二十分钟回工坊，路上经过一家卖烤玉米的小摊，买了一个，边走边啃，玉米粒有点老，嚼起来费劲。摊主问我要不要辣椒粉，我说不用。</p>
+
+<p>工坊是一间锌皮顶的平房，门口有一棵刺槐，早死了，只剩下光秃秃的干枝，但我没砍它。每天傍晚有些鸟停在那上面，停一会儿又飞走，我不知道是什么鸟。</p>
+
+<p>工作台上摊着一块磨了五周的镜片毛坯，八英寸，抛物面，就差最后一次精抛。我坐下来，蘸了抛光液，开始转研磨杆。转了大概一刻钟，停下来用干涉仪照了一下。条纹是弯的。我又转，又照，还是弯。我换了一根更细的杆，转速放慢，再试一次。条纹还是弯的，而且弯的方向跟我以为的完全相反。</p>
+
+<p>我摘了手套，揉了揉右眼。黄雾好像比昨天浓了一些。我凑近镜片，用左眼单眼看，焦距对不准，像隔着水。又闭上左眼，用右眼看，能看清，但中间那块模糊。我把镜片从夹具上取下来，立在窗台上。阳光从窗户照进来，穿过玻璃，在地板上投出一块亮斑。我蹲下来看那块亮斑，边缘还算锐利，说明镜面至少不差得太远。但我知道过不了干涉仪那道坎。</p>
+
+<p>那天傍晚，我第一次没把镜片收进木箱。就让它立在窗台上。我坐在门口抽烟，看着太阳从西边那排秃山后面沉下去，天从橘色变成暗蓝，星星一颗一颗浮出来。对面石头堆里那只瘸腿狐狸又来了，远远站着。它大概一年前开始出现在附近，左后腿有一道旧伤，跑起来身子往一边歪。我有时候把喝剩的咖啡渣倒在地上，它就来舔。今天我没倒，它还是站着看了一会儿，然后一瘸一拐地走了。</p>
+
+<p>夜里我睡不着。起来煮水，泡了杯茶，端着坐在院子里。没有架望远镜。就坐着，看星星。头顶有半人马座阿尔法星，很亮，亮得几乎发蓝。我没有去数别的星座，只是看。风从东边来，带着盐和沙子，茶杯里落了一层细灰，我没倒掉，一起喝了。</p>
+
+<p>第二天我到镇上的天文台去了一趟。之前那个游客向导走了，他们需要人替。负责人是个戴圆眼镜的女人，叫罗哈斯，问我有什么经验。我说我磨了三十四年望远镜镜片。她说那你应该很了解星星。我说了解。她问能不能跟人聊天。我说大概能吧。</p>
+
+<p>就这样开始做了。</p>
+
+<p>每天傍晚来一批游客，穿着颜色鲜艳的防风外套，一下车就举着手机拍天空。我拿着激光笔站在平台上，指给他们看南十字、船底座星云、麦哲伦云。讲那些数字：距离多少光年、质量是太阳的几倍、表面温度多少开尔文。游客们点头，拍照，问"能看见外星人吗"。我说不能。</p>
+
+<p>有一次，一个七八岁的男孩，戴着一顶过大的棒球帽，站在我旁边问："叔叔，你为什么不直接看星星，非要通过那个大管子呢？"</p>
+
+<p>我说因为星星太远了。</p>
+
+<p>他想了想，说："可是你的眼睛也很远啊。"</p>
+
+<p>他被他妈拉走了。我站在原地，激光笔还亮着，绿光一直戳到天幕上。我不知道他说的"远"是什么意思。但那个问题在脑子里绕了一整晚，像一颗圆石子在水底滚动。</p>
+</section>
+
+<!-- ── Section 3 ── -->
+<section class="section">
+<h2>（三）</h2>
+
+<p>过了一段时间，盲校有个老师来天文台，说想带孩子们看星星。我说盲人怎么看。她说不是看，是摸。后来她来了我的工坊，看了墙上那些砂纸，说能不能让孩子们来摸砂纸，每种砂纸代表一种星球表面。我说行。</p>
+
+<p>第一批来了六个孩子，八到十三岁。他们走进工坊的时候手在前面伸着，指头轻轻碰桌沿、碰门框。我裁了好几片砂纸贴在木板上：粗的是火星，中粗的是月球，细的是冥王星，最细的抛光砂是银河。</p>
+
+<p>他们摸。第一个男孩摸粗砂纸，说："烫。"另一个女孩摸中粗的，说："像老面包皮。"第三个小女孩叫卡米拉，九岁，头发扎得很紧，她摸到最细的抛光砂时停住了。手指在上面来回滑了两趟，然后趴下去，把耳朵贴在砂纸上。</p>
+
+<p>"这个下雨了。"她说。</p>
+
+<p>她抬起头，脸上有一种认真的表情。"不是真的雨，是很远很远的雨。"</p>
+
+<p>我没说话。她把手翻过来，掌心朝上，对着灯光看。掌纹里嵌着几粒抛光砂，闪着细碎的光。</p>
+
+<p>那只狐狸那天又来了，趴在门槛外面。卡米拉问："门口有东西吗？"我说一只狐狸，瘸了一条腿。她说："它也来看吗？"我说大概吧。</p>
+
+<p>后来每周两个下午，盲校的孩子来我的工坊。他们用砂纸在纸上蹭出各种纹理，有的画成圆，有的画成一条长带，有的就是一片均匀的灰色。我把那些纸贴在墙上。贴到第二十张的时候，有一天傍晚，孩子们走了，我一个人站在屋子中间，四壁都是砂纸画。我关了灯，窗外的月光照进来，照在那些粗糙的纸面上，每一张都反射出不同的亮度，像一张散开的星图。</p>
+
+<p>我从柜子里翻出旧鞋盒，里面有三十年前磨的第一块镜片。四英寸，玻璃里有好多气泡，曲率歪得离谱。那时候我住老家，后院有棵核桃树，我用硬纸板卷了个镜筒，把镜片卡在一头，另一头对着猎户座。那天晚上我第一次看见了猎户座大星云，一团模糊的紫光，在目镜里晃着，像呼吸。我把纸筒架在树枝上，趴着看了很久，脖子酸了也没动。第二天上学迟到了，我跟老师说我胃疼。</p>
+
+<p>那块镜片我举起来，透过它看天花板。什么也看不清。气泡像一串被封住的小脚印。</p>
+
+<p>我把镜片放回鞋盒，放回柜子底层。</p>
+</section>
+
+<!-- ── Section 4 ── -->
+<section class="section">
+<h2>（四）</h2>
+
+<p>十二月的某一天，卡米拉临走前站在门口，忽然伸手碰了碰我的右手。她摸得很仔细，从指尖摸到指根。</p>
+
+<p>"你的手上有好多小坑。"她说。</p>
+
+<p>我把手摊开看了看。指纹的沟壑里嵌着抛光砂，几十年磨镜片磨出来的，洗不掉，搓不掉，已经跟肉长在一起。皮肤底下那些砂粒在光线下微微发亮。</p>
+
+<p>我说："那是以前磨镜片留下的。"</p>
+
+<p>"现在还磨吗？"</p>
+
+<p>"不磨了。"</p>
+
+<p>"疼吗？"</p>
+
+<p>我想了一会儿。"不疼。"</p>
+
+<p>她点点头，走了。狐狸也走了。天快黑了，我把工坊的门锁好，回屋里煮面条。水烧开的时候我站在灶前，盯着锅里的气泡从底部升上来，一个接一个破掉。我忽然想起那片旧镜片里的气泡，还有那天晚上那团紫光。紫光还在我脑子里，比什么高精度镜片看到的都清楚。</p>
+
+<p>面条煮好了，我加了一勺辣酱，坐在桌边吃。窗台上那片最后没磨完的镜片还立着，月光穿过它，在地板上投出一块毛茸茸的光斑，边缘模糊，不圆，晃来晃去。</p>
+
+<p>我看了很久。</p>
+
+<p>那个光斑在地上慢慢移动，像一颗走得很慢的星。</p>
+</section>
+
+<div class="ending">（完）</div>
+
+<div class="footer">
+  <a href="#top">回到顶部</a>
+  <span class="separator">·</span>
+  <a href="index.html">回到博客首页</a>
+</div>
+
+</div><!-- /content -->
+
+</body>
+</html>
