@@ -16,24 +16,48 @@
   body {
     background-color: #f7f5f0;
     color: #2a2824;
-    font-family: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+    font-family: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
     line-height: 2;
     font-size: 17px;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Reading Progress Bar ── */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #1a3a5c, #3a7cc0);
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear;
   }
 
   /* ── Hero / Title ── */
   .hero {
     text-align: center;
-    padding: 80px 24px 60px;
-    background: linear-gradient(180deg, #eae7df 0%, #f7f5f0 100%);
-    border-bottom: 1px solid #ddd9d0;
+    padding: 96px 24px 48px;
+    background: linear-gradient(180deg, #eae7df 0%, #f0ede5 40%, #f7f5f0 100%);
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 1px;
+    background: #d4cfc5;
   }
 
   .hero h1 {
     font-size: 2.4rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-weight: 300;
+    letter-spacing: 0.25em;
     color: #1a3a5c;
     margin-bottom: 16px;
   }
@@ -42,15 +66,25 @@
     font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.85rem;
     font-weight: 300;
-    color: #8a8274;
+    color: #b0a999;
+    letter-spacing: 0.2em;
+  }
+
+  .hero .atmosphere {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #c5bfb3;
+    margin-top: 20px;
     letter-spacing: 0.1em;
+    font-style: italic;
   }
 
   /* ── Chapter Nav (sticky) ── */
   .nav-bar {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 50;
     background: rgba(247, 245, 240, 0.92);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -59,11 +93,11 @@
   }
 
   .nav-inner {
-    max-width: 680px;
+    max-width: 640px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -76,75 +110,99 @@
     font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.78rem;
     font-weight: 400;
-    color: #9a9588;
+    color: #b0a999;
     text-decoration: none;
     white-space: nowrap;
-    padding: 4px 12px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: 3px;
     transition: all 0.2s;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05em;
   }
 
   .nav-inner a:hover {
     color: #1a3a5c;
-    background: rgba(26, 58, 92, 0.06);
+    background: rgba(26, 58, 92, 0.05);
   }
 
   /* ── Main Content ── */
   .content {
     max-width: 640px;
     margin: 0 auto;
-    padding: 48px 24px 80px;
+    padding: 48px 24px 60px;
   }
 
   /* ── Chapters ── */
   .chapter {
-    margin-bottom: 56px;
+    margin-bottom: 64px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeInUp 0.6s ease forwards;
   }
 
-  .chapter:first-of-type {
-    padding-top: 16px;
+  .chapter:nth-child(1) { animation-delay: 0.1s; }
+  .chapter:nth-child(2) { animation-delay: 0.2s; }
+  .chapter:nth-child(3) { animation-delay: 0.3s; }
+  .chapter:nth-child(4) { animation-delay: 0.4s; }
+  .chapter:nth-child(5) { animation-delay: 0.5s; }
+  .chapter:nth-child(6) { animation-delay: 0.6s; }
+  .chapter:nth-child(7) { animation-delay: 0.7s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .chapter h2 {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    color: #1a3a5c;
-    margin-bottom: 32px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #e8e4dc;
-    letter-spacing: 0.06em;
+    color: #2a2824;
+    margin-bottom: 28px;
+    letter-spacing: 0.08em;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e8e5dd;
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
   .chapter h2::before {
     content: '';
     display: block;
-    width: 32px;
-    height: 2px;
-    background: #5a8ab5;
-    margin-bottom: 14px;
-    border-radius: 1px;
+    width: 4px;
+    height: 18px;
+    background: #1a3a5c;
+    border-radius: 2px;
+    flex-shrink: 0;
+    opacity: 0.5;
   }
 
-  /* ── Paragraphs ── */
+  /* ── Paragraphs with first-line indent ── */
   .chapter p {
     margin-bottom: 1.2em;
+    text-align: justify;
     text-indent: 2em;
+    letter-spacing: 0.02em;
+    hyphens: none;
   }
 
   .chapter p:first-of-type {
-    text-indent: 0;
+    font-weight: 400;
   }
 
-  .chapter p:first-of-type::first-letter {
-    /* subtle drop-cap feel without being too ornate */
+  /* Don't indent after headings, hr, or block elements */
+  .chapter h2 + p,
+  hr + p {
+    text-indent: 2em;
   }
 
-  /* ── Dialogue lines (no indent) ── */
+  /* ── Dialogue lines ── */
   .chapter p.dialogue {
+    text-align: left;
+    color: #3d3a34;
     text-indent: 0;
     padding-left: 2em;
-    color: #3d3a34;
   }
 
   /* ── Separator ── */
@@ -155,40 +213,83 @@
   }
 
   hr::after {
-    content: '· · ·';
-    color: #c5bfb3;
-    letter-spacing: 0.6em;
-    font-size: 1.2rem;
+    content: '\u00b7 \u00b7 \u00b7';
+    color: #d4cfc5;
+    letter-spacing: 0.8em;
+    font-size: 1rem;
   }
 
   /* ── Ending ── */
   .ending {
     text-align: center;
-    padding: 48px 0 24px;
-    color: #a09b8e;
+    padding: 64px 0 24px;
+    color: #b0a999;
     font-size: 0.95rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
   }
 
-  /* ── Back to top / blog link ── */
-  .footer-nav {
+  /* ── Footer ── */
+  .footer {
     text-align: center;
-    padding: 32px 0 48px;
+    padding: 32px 0 64px;
     border-top: 1px solid #e5e1d8;
     margin-top: 48px;
   }
 
-  .footer-nav a {
+  .footer a {
     font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.82rem;
-    color: #9a9588;
+    color: #b0a999;
     text-decoration: none;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     transition: color 0.2s;
+    display: inline-block;
+    margin: 0 12px;
   }
 
-  .footer-nav a:hover {
+  .footer a:hover {
     color: #1a3a5c;
+  }
+
+  .footer .separator {
+    color: #d4cfc5;
+    margin: 0 8px;
+  }
+
+  /* ── Back to top button ── */
+  .back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(247, 245, 240, 0.9);
+    border: 1px solid #e5e1d8;
+    color: #b0a999;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s;
+    pointer-events: none;
+    z-index: 50;
+    text-decoration: none;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .back-to-top:hover {
+    color: #1a3a5c;
+    border-color: #1a3a5c;
+    background: rgba(247, 245, 240, 1);
   }
 
   /* ── Neon glow accent (subtle) ── */
@@ -204,29 +305,42 @@
 
   /* ── Responsive ── */
   @media (max-width: 600px) {
-    body { font-size: 16px; line-height: 1.9; }
-    .hero { padding: 56px 20px 40px; }
-    .hero h1 { font-size: 1.8rem; }
-    .content { padding: 32px 18px 60px; }
-    .chapter h2 { font-size: 1.2rem; }
+    body { font-size: 16px; line-height: 2; }
+    .hero { padding: 64px 20px 36px; }
+    .hero h1 { font-size: 1.8rem; letter-spacing: 0.15em; }
+    .content { padding: 32px 18px 48px; }
+    .chapter { margin-bottom: 48px; }
+    .chapter h2 { font-size: 1rem; margin-bottom: 20px; }
+    .chapter p { text-indent: 1.5em; }
+    .back-to-top { bottom: 20px; right: 20px; width: 36px; height: 36px; }
   }
 
   /* ── Selection color ── */
   ::selection {
-    background: rgba(90, 138, 181, 0.2);
+    background: rgba(90, 138, 181, 0.15);
     color: #1a3a5c;
+  }
+
+  /* ── Print styles ── */
+  @media print {
+    .nav-bar, .back-to-top, .progress-bar { display: none; }
+    .chapter { opacity: 1; transform: none; page-break-inside: avoid; }
+    body { font-size: 12pt; line-height: 1.8; }
   }
 </style>
 </head>
 <body>
 
+<!-- ═══ Reading Progress Bar ═══ -->
+<div class="progress-bar" id="progressBar"></div>
+
 <!-- ═══ Hero ═══ -->
-<div class="hero">
+<div class="hero" id="top">
   <h1>Blue M<span class="neon-o">o</span>on</h1>
-  <div class="subtitle">东京 · 中野 · 一个爵士酒吧的故事</div>
+  <div class="atmosphere">东京的雨，总是先落在铁轨上</div>
 </div>
 
-<!-- ═══ Sticky Nav ═══ -->
+<!-- ═══ Chapter Nav ═══ -->
 <nav class="nav-bar">
   <div class="nav-inner">
     <a href="#ch1">雨来之前</a>
@@ -790,11 +904,41 @@
 
 <div class="ending">（完）</div>
 
-<!-- ── Footer Nav ── -->
-<nav class="footer-nav">
-  <a href="../blog/index.html">&larr; 回到博客首页</a>
-</nav>
+<!-- ── Footer ── -->
+<div class="footer">
+  <a href="#top">回到顶部</a>
+  <span class="separator">·</span>
+  <a href="../blog/index.html">回到博客首页</a>
+</div>
 
 </div><!-- /content -->
+
+<!-- ── Back to top button ── -->
+<a href="#top" class="back-to-top" id="backToTop" title="回到顶部">↑</a>
+
+<!-- ── Scripts ── -->
+<script>
+  // Reading progress bar
+  const progressBar = document.getElementById('progressBar');
+  const backToTop = document.getElementById('backToTop');
+
+  function onScroll() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+
+    // Show/hide back-to-top button
+    if (scrollTop > 600) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // Initial state
+</script>
+
 </body>
 </html>
